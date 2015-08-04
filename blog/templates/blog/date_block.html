@@ -1,0 +1,9 @@
+{% if post.edit_date %}
+  <p class="date">Last edited on: {{ post.published_date }}</p>
+{% elif post.published_date %}
+  <div class="date">
+    {{ post.published_date }}
+  </div>
+{% else %}
+  <p class="date">created: {{ post.created_date|date:"d-m-Y" }}</p>
+{% endif %}
