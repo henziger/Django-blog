@@ -85,3 +85,8 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('blog.views.post_detail', pk=post_pk)
+
+@login_required
+def comments_list(request):
+    comments = Comment.objects.order_by('-created_date')
+    return render(request, 'blog/comments_list.html', {'comments': comments})
